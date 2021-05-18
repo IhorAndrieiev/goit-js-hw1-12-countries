@@ -1,4 +1,8 @@
 // import debounce from 'node_modules/lodash.debounce';
+import { error } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
+
 var debounce = require('lodash.debounce');
 import './css/common.css';
 import countryCard from './templates/card-countries.hbs';
@@ -15,11 +19,11 @@ refs.searchInput.addEventListener('input', debounce(onImputSearch, 500));
 function onImputSearch(e) {
     const searchQuery = e.target.value; //searchQuery callback countryName
     console.log(searchQuery)
-    if (!searchQuery) {
+    if (!searchQuery.trim()) {
         refs.cardContainer.innerHTML = '';
         return
     }
-    API.fetchCountriesByNames(searchQuery)
+    API.fetchCountriesByNames(searchQuery.trim())
         .then(renderCountriesCard)
         .catch(onFetchError)
         
@@ -30,15 +34,14 @@ function onImputSearch(e) {
     function renderCountriesCard(countries) {
         // const markup = countryCard(countries);
         if (countries.length > 10) {
-            //refs.cardContainer.insertAdjacentHTML('beforeend', countriesOfList(countries));
             refs.cardContainer.innerHTML = '';
             onFetchError();
-            // error({
-            //     title: 'Uh Oh!',
-            //     text: 'Too many matches found. Please enter a more specific query!',
-            //     delay: 2500,
-            //     closerHover: true,
-            // });
+            error({
+                title: 'Uh Oh!',
+                text: 'Too many matches found. Please enter a more specific query!',
+                delay: 2500,
+                closerHover: true,
+            });
         } else if (countries.length <= 10 && countries.length > 1) {
             refs.cardContainer.innerHTML = '';
             refs.cardContainer.insertAdjacentHTML('beforeend', countriesOfList(countries));
@@ -54,5 +57,5 @@ function onImputSearch(e) {
     }
 
      function onFetchError(error) {
-         alert('error набери больше букв')
+         //alert('error набери больше букв')
      } 
