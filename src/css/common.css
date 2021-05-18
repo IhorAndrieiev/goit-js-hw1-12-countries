@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+  color: #2a2a2a;
+}
+
+.list-group-item {
+  display: block;
+  border: 0;
+  list-style: inside;
+  background-color: rgb(236, 232, 232);
+}
+
+.card {
+  width: 800px;
+  background-color: rgb(236, 232, 232);
+}
+.card-title {
+  padding: 50px;
+}
+.card-list {
+  display: block;
+  padding-left: 10px;
+  width: 40%;
+}
+
+.card-card {
+  display: flex;
+}
+img {
+  display: block;
+  max-width: 400%;
+  height: auto;
+
+  border: 1px solid black;
+}
+.articles img {
+  display: flex;
+  width: 150%;
+  height: 150px;
+  object-fit: contain;
+  border: 0;
+  padding: 40px;
+}
+
+.articles {
+  padding: 40px;
+}
+.li-text {
+  list-style: inside;
+  /* text-align: center; */
+}
+
+/* .ul-list {
+  display: block;
+} */
+.card-text {
+  display: inline;
+}
+.form-group {
+  padding: 40px;
+  width: 600px;
+}
+.list {
+  display: block;
+  width: 650px;
+}
