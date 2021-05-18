@@ -18,7 +18,7 @@ refs.searchInput.addEventListener('input', debounce(onImputSearch, 500));
       
 function onImputSearch(e) {
     const searchQuery = e.target.value; //searchQuery callback countryName
-    console.log(searchQuery)
+    //console.log(searchQuery)
     if (!searchQuery.trim()) {
         refs.cardContainer.innerHTML = '';
         return
